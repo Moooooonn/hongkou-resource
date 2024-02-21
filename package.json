@@ -23,11 +23,14 @@
   "dependencies": {
     "@vueuse/core": "^10.7.2",
     "axios": "^1.6.7",
+    "element-plus": "^2.5.6",
     "js-cookie": "^3.0.5",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
+    "vant": "^4.8.4",
     "vue": "^3.4.15",
+    "vue-awesome-swiper": "^5.0.1",
     "vue-i18n": "^9.9.0",
     "vue-router": "^4.2.5"
   },
