@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const date = ref('')
 const week = ref('')
 const day = ref('')
@@ -21,30 +23,27 @@ function handleClickScheduleItem() {
 
 // mock schedule data, onmounted时获取数据
 const scheduleData = ref([{
+  id: '1',
   title: '物理学科下的探讨交流展示活动',
   status: 'signed',
 }, {
+  id: '2',
   title: '物理学科下的探讨交流展示活动',
   status: 'unsigned',
 }])
 
-interface User {
-  date: string
-  name: string
-  address: string
-}
-function handleJoin(index: number, row: User) {
+function handleJoin(index: number, row: any) {
   // console.log(index, row)
 }
-function handleExit(index: number, row: User) {
+function handleExit(index: number, row: any) {
   // console.log(index, row)
 }
-function goToActivityDetailPage(index: number, row: User) {
-  // console.log(index, row)
+function goToActivityDetailPage(index: number, row: any) {
+  router.push({ path: '/activity-detail', query: { id: row.id } })
 }
 
 // mock table data, onmounted时获取数据
-const tableData: User[] = [
+const tableData = [
   {
     title: '物理学科实验下的实验探讨交流',
     status: 'signed',
@@ -136,7 +135,7 @@ onMounted(() => {
   }
 }
 .schedule-title {
-  font-size: 16px;
+  font-size: 24px;
   color: #c02121;
   font-weight: 600;
 }

@@ -2,7 +2,10 @@
 import { onMounted, ref } from 'vue'
 import { Autoplay, Pagination } from 'swiper'
 import 'swiper/css/pagination'
+import { useRouter } from 'vue-router'
 import { useNavbar } from '~/composables'
+
+const router = useRouter()
 
 const { t } = useI18n()
 useNavbar({ title: () => t('home.title') })
@@ -43,6 +46,22 @@ function onSwiper(swiper: any) {
 function onSlideChange() {
   // console.log('slide change')
 }
+
+function goMoreNotification() {
+  router.push({ path: '/notification' })
+}
+
+function goToEchelon() {
+  router.push({ path: '/echelon' })
+}
+
+function goToSwiperDetailPage(bannerId: any) {
+  router.push({ path: '/banner', query: { id: bannerId } })
+}
+
+function goToNotificationDetail(id: any) {
+  router.push({ path: '/notification-detail', query: { id } })
+}
 </script>
 
 <template>
@@ -59,7 +78,7 @@ function onSlideChange() {
           @swiper="onSwiper"
           @slide-change="onSlideChange"
         >
-          <swiper-slide v-for="(slide, index) in swiperData" :key="index">
+          <swiper-slide v-for="(slide, index) in swiperData" :key="index" @click="goToSwiperDetailPage(slide.id)">
             <el-image style="width: 100%; height: 100%" :src="slide.imagePath" fit="cover" />
           </swiper-slide>
         </swiper>
@@ -71,15 +90,25 @@ function onSlideChange() {
         通知公告
       </p>
       <div class="notification-content">
-        <p><span>通知：</span>关于完成教师称号上报工作。</p>
-        <p><span>公告：</span>关于专业人才梯队评选办法（2023-2024）。</p>
-        <p><span>喜报：</span>恭喜XXX获得XX称号。</p>
-        <p><span>通知：</span>因平台升级暂时关闭平台通知。</p>
+        <p @click="goToNotificationDetail(1)">
+          <span>通知：</span>关于完成教师称号上报工作。
+        </p>
+        <p @click="goToNotificationDetail(2)">
+          <span>公告：</span>关于专业人才梯队评选办法（2023-2024）。
+        </p>
+        <p @click="goToNotificationDetail(3)">
+          <span>喜报：</span>恭喜XXX获得XX称号。
+        </p>
+        <p @click="goToNotificationDetail(4)">
+          <span>通知：</span>因平台升级暂时关闭平台通知。
+        </p>
       </div>
-      <a class="notification-more">更多通知公告</a>
+      <p class="notification-more" @click="goMoreNotification">
+        更多通知公告
+      </p>
     </div>
 
-    <div class="echelon">
+    <div class="echelon" @click="goToEchelon">
       <p class="echelon-title">
         梯队风采
       </p>

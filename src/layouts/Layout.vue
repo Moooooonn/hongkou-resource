@@ -92,10 +92,11 @@ export default defineComponent({
 <style lang="scss">
 .app-container {
   box-sizing: border-box;
-  height: 100vh;
+  // height: 100vh;
   padding-top: 40px;
-  padding-bottom: 70px;
+  // padding-bottom: 70px;
   overflow: scroll;
+  background: #f3f4f6;
 }
 .layout-content {
   height: 100%;

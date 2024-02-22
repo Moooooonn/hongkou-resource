@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { reactive, toRefs } from 'vue'
 import { ArrowRightBold } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 // mock 数据，后续需要从接口获取
 const state = reactive({
   circleUrl:
@@ -13,6 +15,10 @@ const state = reactive({
   applySubject: '物理',
 
 })
+
+function goToLoginPage() {
+  router.replace({ path: '/login' })
+}
 
 const { circleUrl, name, school, applyName, applyPhase, applySubject } = toRefs(state)
 </script>
@@ -49,7 +55,7 @@ const { circleUrl, name, school, applyName, applyPhase, applySubject } = toRefs(
       <p>修改密码</p>
       <el-icon><ArrowRightBold /></el-icon>
     </section>
-    <div class="logout">
+    <div class="logout" @click="goToLoginPage">
       退出登录
     </div>
   </div>
