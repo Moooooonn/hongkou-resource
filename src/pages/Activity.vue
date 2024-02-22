@@ -34,13 +34,13 @@ interface User {
   address: string
 }
 function handleJoin(index: number, row: User) {
-  console.log(index, row)
+  // console.log(index, row)
 }
 function handleExit(index: number, row: User) {
-  console.log(index, row)
+  // console.log(index, row)
 }
 function goToActivityDetailPage(index: number, row: User) {
-  console.log(index, row)
+  // console.log(index, row)
 }
 
 // mock table data, onmounted时获取数据

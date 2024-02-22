@@ -12,6 +12,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 40px;
   background-color: #c02121;
@@ -20,5 +23,6 @@ onMounted(() => {
   font-size: 12px;
   font-weight: bold;
   color: #fff;
+  z-index: 10;
 }
 </style>

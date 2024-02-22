@@ -38,10 +38,10 @@ const swiperOption = {
 }
 
 function onSwiper(swiper: any) {
-  console.log(swiper)
+  // console.log(swiper)
 }
 function onSlideChange() {
-  console.log('slide change')
+  // console.log('slide change')
 }
 </script>
 

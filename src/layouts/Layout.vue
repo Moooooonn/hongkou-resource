@@ -58,7 +58,7 @@ export default defineComponent({
       }),
     })
     const handleChange = (v: number) => {
-      console.log('tab value:', v)
+      // console.log('tab value:', v)
     }
 
     return {
@@ -93,7 +93,9 @@ export default defineComponent({
 .app-container {
   box-sizing: border-box;
   height: 100vh;
+  padding-top: 40px;
   padding-bottom: 70px;
+  overflow: scroll;
 }
 .layout-content {
   height: 100%;
